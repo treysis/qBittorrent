@@ -4786,6 +4786,9 @@ void Session::handlePeerBlockedAlert(const lt::peer_blocked_alert *p)
     case lt::peer_blocked_alert::tcp_disabled:
         reason = tr("%1 is disabled", "this peer was blocked. Reason: TCP is disabled.").arg("TCP"); // don't translate TCP
         break;
+    case lt::peer_blocked_alert::invalid_local_interface:
+        reason = tr("invalid local interface", "this peer was blocked. Reason: invalid local interface.");
+        break;
     }
 
     const QString ip {toString(p->endpoint.address())};
